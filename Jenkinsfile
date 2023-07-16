@@ -5,7 +5,6 @@ pipeline {
     }
     stages {
         stage('COMPILE') {
-            agent any
             steps {
                 script{
                     echo "COMPILING THE CODE"
