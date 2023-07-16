@@ -9,7 +9,7 @@ pipeline {
         stage('COMPILE') {
             steps {
                 script{
-                    echo "COMPILING THE CODE"
+                    echo "COMPILING THE CODE ${params.APPVERSION}"
                 }
                           }
             }
