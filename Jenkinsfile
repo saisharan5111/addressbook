@@ -2,9 +2,9 @@ pipeline {
   agent any
   parameters {
     string(name: 'Env', defaultValue: 'Test', description: 'version to deploy')
-    booleanParam(name:'executeTests', choices: ['1.1', '1.2', '1.3'])
+    booleanParam(name:'executeTests',defaultValue:True,description:'to decide')
+    choice(name:'BRANCH',choices:['1.1','1.2','1.3'])
   }
-
   stages {
     stage('Compile') {
       steps {
