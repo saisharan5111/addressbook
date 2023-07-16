@@ -1,7 +1,7 @@
 pipeline {
     agent any
     parameters{
-        string(name:'ENV,defaultValue:'Test',description:'version to deply to test')
+        string(name:'Env',defaultValue:'Test',description:'version to deply to test')
     }
     stages {
         stage('COMPILE') {
