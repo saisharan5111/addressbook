@@ -18,17 +18,4 @@ pipeline {
                 }
                           }
             }
-        stage('UNITTEST'){
-            agent any
-            steps {
-                script{
-                    echo "RUNNING THE UNIT TEST CASES"
-                }
-             
-            }
-        
-            }
-        stage('PACKAGE+BUILD DOCKER IMAGE ON BUILD SERVER'){
-            agent any
-                     echo "PACKAGING THE CODE"
-        }
+      
