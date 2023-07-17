@@ -12,12 +12,16 @@ pipeline {
                     echo "COMPILING THE CODE ${params.APPVERSION}"
                     sh "mvn compile"
                 }
+            }
+        }
     stages {
         stage('TEST') {
             steps {
                 script{
                     sh "mvn test"
                 }
+            }
+        }
     stages {
         stage('TEST') {
             steps {
@@ -28,4 +32,3 @@ pipeline {
             }
     }
 }
-
