@@ -10,7 +10,6 @@ pipeline {
             steps {
                 script{
                     echo "COMPILING THE CODE ${params.APPVERSION}"
-                    sh 'mvn compile'
                 }
                           }
             }
