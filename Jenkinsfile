@@ -1,36 +1,26 @@
 pipeline {
-    agent any
-    parameters{
-        string(name:'Env',defaultValue:'Test',description:'version to deply to test')
-        booleanParam(name:'executeTests',defaultValue:true,description:'deecide to run tc')
-        choice(name:'APPVERSION',choices:['1.1','1.2','1.3'])
+    agent any    
+    stages {        
+        stage('Compile') {
+            steps {
+                // Execute Maven to compile your code
+                // You might need to customize the Maven goals depending on your project structure
+                sh 'mvn compile'
             }
+        }
+        
+        stage('Test') {
+            steps {
+                // Execute Maven to run tests
+                sh 'mvn test'
+            }
+        }
+        
+        stage('Package') {
+            steps {
+                // Execute Maven to create a deployable package (e.g., JAR, WAR)
+                sh 'mvn package'
+            }
+        }
+    }
 }
-    stages {
-        stage('COMPILE') {
-            steps {
-                script{
-                    echo "COMPILING THE CODE ${params.APPVERSION}"
-                    sh "mvn compile"
-                }
-            }
-        }
-    }
-    stages {
-        stage('TEST') {
-            steps {
-                script{
-                    sh "mvn test"
-                }
-            }
-        }
-    }
-    stages {
-        stage('TEST') {
-            steps {
-                script{
-                    sh "mvn package"
-                }
-                          }
-            }
-    }
